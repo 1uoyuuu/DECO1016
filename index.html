@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width initial-scale=1.0">
+    <title>Visit Yunnan</title>
+    <!-- my stylesheet -->
+    <link href="style.css" rel="stylesheet" type="text/css" />
+    <!-- flickity stylesheet import -->
+    <link rel="stylesheet" href="https://unpkg.com/flickity@2/dist/flickity.min.css">
+    <!-- font import -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://use.typekit.net/dgz6zph.css">
+</head>
+
+<body id="homepage">
+    <!-- I thought that I failed to follow a rigid semantic layout here, because I want to have a full screen image as the background,
+    with the top navigation bar overlay on top of it, my solution is to create a section as container with a height of 100vh, and then 
+    set the background with my background image, then put navigation bar in the container  -->
+    <section id="hero-section">
+        <header>
+            <nav class="top-nav top-nav-light">
+                <div id="logo">
+                    <a href="index.html"><span class="italic">Visit</span> Yunnan</a>
+                </div>
+                <button type="button" id="nav-menu-icon">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <div id="nav-link-container">
+                    <ul class="nav-links">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="destination.html">Destination</a></li>
+                        <li><a href="discovery.html">Discovery</a></li>
+                    </ul>
+                </div>
+            </nav>
+        </header>
+        <div id="hero-text">
+            <h1><span class="italic">Escape</span> to the paradise.</h1>
+            <p>explore&experience</p>
+        </div>
+    </section>
+    <section id="explore-yunnan">
+        <h2 class="homepage-subheading"><span class="italic">Explore</span> Yunnan</h2>
+        <p class="homepage-introduction">Yunnan is the most southwestern province in China, with the Tropic of
+            Cancer running through its southern part. It is situated in a mountainous area, with high elevations in
+            the northwest and low elevations in the southeast. It has a generally mild climate with pleasant and
+            fair weather because of the province's location on south-facing mountain slopes. Such geographical and
+            climatic features have created a natural landscape unique to Yunnan.</p>
+        <div class="dashed-btn">
+            <a href="destination.html">
+                <p>Explore</p>
+                <svg width="23" height="21" viewBox="0 0 23 21" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M-1.52665e-06 10.5L22 10.5M22 10.5L13.8769 20M22 10.5L13.8769 1" stroke="#000000" />
+                </svg>
+
+            </a>
+        </div>
+        <!-- I used flickity library to achieve my ideal carousel effect, images can be autoplay, it is quite handy without worrying about js -->
+        <div class="carousel" id="city-slideshow"
+            data-flickity='{ "autoPlay": 2000, "wrapAround": true , "pageDots": false, "prevNextButtons": false}'>
+            <div class="carousel-cell">
+                <figure><img src="images/homepage/carousel/carousel-1.png" alt="a bird view of Dali"></figure>
+                <p>Dali</p>
+            </div>
+            <div class="carousel-cell">
+                <figure><img src="images/homepage/carousel/carousel-2.png" alt="busy citylights and skyscrapers in kunming"></figure>
+                <p>Kunming</p>
+            </div>
+            <div class="carousel-cell">
+                <figure><img src="images/homepage/carousel/carousel-3.png" alt="Lijiang ancient town when sun rises"></figure>
+                <p>Lijiang</p>
+            </div>
+            <div class="carousel-cell">
+                <figure><img src="images/homepage/carousel/carousel-4.png" alt="tea mountains in Puer surrounded by mist"></figure>
+                <p>Pu'er</p>
+            </div>
+            <div class="carousel-cell">
+                <figure><img src="images/homepage/carousel/carousel-5.png" alt="color land of Qujing"></figure>
+                <p>Qujing</p>
+            </div>
+            <div class="carousel-cell">
+                <figure><img src="images/homepage/carousel/carousel-6.png" alt="a overview of ancient sacred temple"></figure>
+                <p>Shangri-la</p>
+            </div>
+            <div class="carousel-cell">
+                <figure><img src="images/homepage/carousel/carousel-7.png" alt="mountains and rapeseed land from the sky"></figure>
+                <p>Wenshan</p>
+            </div>
+            <div class="carousel-cell">
+                <figure><img src="images/homepage/carousel/carousel-8.png" alt="the golden tower of Xishuangbanna"></figure>
+                <p>Xishuangbanna</p>
+            </div>
+        </div>
+    </section>
+    <section id="experience-yunnan">
+        <h2 class="homepage-subheading"><span class="italic">Experience</span> Yunnan</h2>
+        <p class="homepage-introduction">With its snow-capped peaks, rice terraces, forests, and lakes and gorges,
+            China's south western province of Yunnan offers one of the most beautiful and diverse landscapes in the
+            country. Known for its large number of ethnic minorities (more than 25), its dotted with traditional tea
+            houses, stunning pagodas, and many museums and temples, leaving a lasting impression on all those who
+            come to experience it.</p>
+        <div class="dashed-btn">
+            <a href="discovery.html">
+                <p>Learn more</p>
+                <svg width="23" height="21" viewBox="0 0 23 21" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M-1.52665e-06 10.5L22 10.5M22 10.5L13.8769 20M22 10.5L13.8769 1" stroke="#FFFFFF" />
+                </svg>
+            </a>
+        </div>
+        <div class="homepage-discovery-container">
+            <div class="homepage-discovery-item">
+                <svg width="27" height="27" viewBox="0 0 27 27" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path fill-rule="evenodd" clip-rule="evenodd" d="M4.33381 0.0327602C5.93263 0.439578 9.60057 1.25004 13.5004 1.25004C17.401 1.25004 21.0697 0.439232 22.6679 0.0324997L22.6704 0.0318776L22.6728 0.0312776C23.5184 -0.175875 24.2657 0.748326 23.9701 1.70044C23.6895 2.61706 23.2037 4.04604 22.572 5.25846C22.2567 5.86368 21.795 6.1639 21.375 6.60543C20.6136 6.71149 21.0257 6.33624 20.25 6.60543H7.3125C6.69201 6.60543 5.7899 6.69178 5.37373 6.25427C4.95374 5.81275 4.74406 5.86368 4.42872 5.25846C3.79668 4.0454 3.31067 2.61555 3.0302 1.69899C2.7395 0.753288 3.47394 -0.18897 4.33381 0.0327602ZM4.30149 1.4919C4.57786 2.36414 4.99798 3.54166 5.51172 4.52765C5.79637 5.07398 6.09278 5.52804 6.3871 5.83745C6.68525 6.15089 6.92092 6.25427 7.09726 6.25427H19.9035C20.0798 6.25427 20.3155 6.15089 20.6136 5.83745C20.908 5.52804 21.2044 5.07398 21.489 4.52765C22.0027 3.54166 22.4229 2.36414 22.6992 1.4919C20.9527 1.92365 17.3459 2.68291 13.5004 2.68291C9.65478 2.68291 6.04799 1.92365 4.30149 1.4919Z" fill="white"/>
+                    <path fill-rule="evenodd" clip-rule="evenodd" d="M25.6821 4.55941C26.5805 4.37452 27.264 5.41172 26.9004 6.33702L26.8994 6.33959C26.5324 7.26377 25.8987 8.69639 25.0758 9.90926C24.2835 11.077 23.1704 12.258 21.816 12.258H5.18502C3.8303 12.258 2.71712 11.0751 1.9251 9.90706C1.10234 8.69366 0.468657 7.26119 0.101872 6.34032C-0.269737 5.40709 0.430151 4.38665 1.31404 4.55846L1.31716 4.55906C3.27625 4.95139 8.22549 5.82637 13.5005 5.82637C18.7692 5.82637 23.7219 4.9519 25.6821 4.55941ZM25.642 6.02168C23.4988 6.44023 18.6561 7.25923 13.5005 7.25923C8.34059 7.25923 3.50227 6.44031 1.35935 6.02175C1.71725 6.88856 2.25917 8.05431 2.9219 9.0317C3.68784 10.1613 4.47038 10.8252 5.18502 10.8252H21.816C22.5309 10.8252 23.3135 10.1621 24.0792 9.03357C24.7422 8.0564 25.2842 6.89014 25.642 6.02168Z" fill="white"/>
+                    <path fill-rule="evenodd" clip-rule="evenodd" d="M3.78771 12.3603C3.9754 11.4597 4.68828 10.8307 5.49404 10.8307H21.5066C22.3174 10.8307 23.02 11.4648 23.2121 12.3567L22.6007 12.5274L23.2125 12.3585L25.8053 24.5285C26.0717 25.7838 25.2367 27 24.0992 27H2.89664C1.75911 27 0.924161 25.7838 1.19056 24.5285L3.78716 12.363L3.78771 12.3603ZM21.9891 12.697C21.9336 12.4413 21.7325 12.2635 21.5066 12.2635H5.49404C5.26352 12.2635 5.06363 12.4456 5.01264 12.6917L5.01215 12.6941L2.41444 24.8649C2.33858 25.2234 2.5786 25.5671 2.89664 25.5671H24.0992C24.4173 25.5671 24.6574 25.2237 24.5815 24.8652L21.9891 12.697Z" fill="white"/>
+                    <path fill-rule="evenodd" clip-rule="evenodd" d="M13.5005 17.4518C12.074 17.4518 10.9142 18.7718 10.9142 20.3965V25.567H16.0868V20.3965C16.0868 18.7718 14.927 17.4518 13.5005 17.4518ZM9.65517 20.3965C9.65517 17.9809 11.3782 16.0189 13.5005 16.0189C15.6229 16.0189 17.3459 17.9809 17.3459 20.3965V26.9999H9.65517V20.3965Z" fill="white"/>
+                    </svg>
+                    
+                <h3>Ethnic Cultures</h3>
+            </div>
+            <div class="homepage-discovery-item">
+                <svg width="33" height="27" viewBox="0 0 33 27" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M20.9971 26.9997C17.9677 26.9997 14.775 26.3265 11.7744 25.0606C9.71 24.1882 7.66478 23.6287 5.51874 23.349C3.09904 23.0361 1.11142 21.4146 0.333664 19.1293C-0.444097 16.8299 0.160828 14.3502 1.90839 12.6529C2.57093 12.0128 3.37269 11.515 4.23207 11.2115C8.33692 9.77021 12.9411 9.25342 15.8841 9.25342C27.7809 9.25342 32.001 14.8054 32.001 19.5608C32.001 23.9417 27.4737 26.9997 20.9923 26.9997H20.9971ZM15.8889 10.2017C13.0275 10.2017 8.54816 10.6995 4.55854 12.1029C3.82879 12.3589 3.14705 12.7809 2.58533 13.3261C1.10182 14.7674 0.588116 16.8725 1.24585 18.8259C1.90359 20.7698 3.58874 22.14 5.64356 22.4055C7.87602 22.6947 10.0029 23.2779 12.1489 24.1882C15.0343 25.4067 18.0925 26.0515 20.9923 26.0515C26.9072 26.0515 31.0408 23.3822 31.0408 19.5608C31.0408 15.2416 27.0704 10.2017 15.8841 10.2017H15.8889Z" fill="white"/>
+                    <path d="M20.9986 23.2728C18.4733 23.2728 15.7991 22.7038 13.2642 21.6323C10.8781 20.6224 8.5064 19.9729 6.01468 19.6505C5.03528 19.5225 4.23352 18.8682 3.92145 17.9437C3.60459 17.0097 3.84944 15.9998 4.55998 15.3123C4.83364 15.0468 5.15051 14.8477 5.50098 14.7244C9.15933 13.4395 13.3842 12.9844 15.8855 12.9844C20.4705 12.9844 28.2289 14.3688 28.2289 19.5652C28.2289 21.9784 24.5033 23.2775 20.9986 23.2775V23.2728ZM15.8903 13.9279C13.461 13.9279 9.37058 14.3688 5.82745 15.6157C5.6114 15.6916 5.40976 15.8149 5.23692 15.9856C4.78083 16.4265 4.632 17.0476 4.83364 17.6402C5.03528 18.2281 5.52018 18.6264 6.14431 18.707C8.72244 19.0436 11.1758 19.7121 13.6483 20.7552C16.0632 21.7793 18.6077 22.3198 21.0034 22.3198C24.0328 22.3198 27.2735 21.2104 27.2735 19.5557C27.2735 17.6308 25.9388 16.1468 23.3031 15.1369C21.3154 14.3783 18.5453 13.9231 15.8951 13.9231L15.8903 13.9279Z" fill="white"/>
+                    <path d="M14.4933 8.65771H13.3926V13.3325H14.4933V8.65771Z" fill="white"/>
+                    <path d="M13.58 0.768657L11.252 8.18863C11.1859 8.39725 11.3675 8.60112 11.6152 8.60112H16.2657C16.5134 8.60112 16.695 8.39725 16.6289 8.18863L14.3119 0.768657C14.2129 0.446255 13.679 0.446255 13.58 0.768657Z" fill="#283760"/>
+                    <path d="M16.2719 9.07524H11.6214C11.3297 9.07524 11.06 8.96145 10.8839 8.76232C10.7078 8.56319 10.6472 8.30716 10.7243 8.06536L13.0468 0.645384C13.1568 0.289794 13.5201 0.0527344 13.9439 0.0527344C14.3676 0.0527344 14.7309 0.289794 14.8409 0.645384L17.169 8.06536C17.246 8.30716 17.1855 8.56319 17.0094 8.76232C16.8332 8.96145 16.5636 9.07524 16.2719 9.07524ZM11.8415 8.127H16.0462L13.9439 1.42294L11.8415 8.127V8.127Z" fill="white"/>
+                    <path d="M22.7335 10.791H21.6328V16.7223H22.7335V10.791Z" fill="white"/>
+                    <path d="M21.7207 0.78237L18.7708 10.1984C18.6882 10.4639 18.9194 10.7199 19.2331 10.7199H25.1384C25.4576 10.7199 25.6833 10.4592 25.6007 10.1984L22.6508 0.78237C22.5242 0.374627 21.8473 0.374627 21.7207 0.78237Z" fill="#283760"/>
+                    <path d="M25.1385 11.194H19.2332C18.9085 11.194 18.6113 11.066 18.4131 10.8431C18.215 10.6203 18.1545 10.3406 18.237 10.0703L21.1869 0.654285C21.308 0.260766 21.7098 0 22.1831 0C22.6564 0 23.0582 0.265507 23.1792 0.654285L26.1292 10.0703C26.2117 10.3406 26.1512 10.6203 25.953 10.8431C25.7549 11.066 25.4577 11.194 25.133 11.194H25.1385ZM19.3267 10.2457H25.0505L22.1831 1.11418L19.3212 10.241L19.3267 10.2457Z" fill="white"/>
+                    </svg>
+                    
+                <h3>Adventures</h3>
+            </div>
+        </div>
+        <!-- this image is used as the background overlay, with its position set to absolute and z-index set to negative -->
+        <img id="bg-pattern" src="images/homepage/bg-traditional-pattern.png">
+    </section>
+
+    <script src="script.js"></script>
+    <!-- javascript import for the flickity carousel -->
+    <script src="https://unpkg.com/flickity@2/dist/flickity.pkgd.min.js"></script>
+</body>
+
+</html>

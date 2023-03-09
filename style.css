@@ -1,0 +1,1282 @@
+/**CSS Reset from https://piccalil.li/blog/a-modern-css-reset/*/
+/* Box sizing rules */
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+/* Remove default margin */
+body,
+h1,
+h2,
+h3,
+h4,
+p,
+figure,
+blockquote,
+dl,
+dd,
+ul,
+li {
+    margin: 0;
+}
+
+/* Remove list styles on ul, ol elements with a list role, which suggests default styling will be removed */
+ul[role='list'],
+ol[role='list'] {
+    list-style: none;
+}
+
+/* Set core root defaults */
+html:focus-within {
+    scroll-behavior: smooth;
+}
+
+/* Set core body defaults */
+body {
+    min-height: 100vh;
+    text-rendering: optimizeSpeed;
+    line-height: 1.5;
+}
+
+/* A elements that don't have a class get default styles */
+a:not([class]) {
+    text-decoration-skip-ink: auto;
+}
+
+/* Make images easier to work with */
+img,
+picture {
+    max-width: 100%;
+    display: block;
+}
+
+/* Inherit fonts for inputs and buttons */
+input,
+button,
+textarea,
+select {
+    font: inherit;
+}
+
+/* Remove all animations, transitions and smooth scroll for people that prefer not to see them */
+@media (prefers-reduced-motion: reduce) {
+    html:focus-within {
+        scroll-behavior: auto;
+    }
+
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+    }
+}
+
+/* * {
+    border: 1px solid greenyellow;
+}
+ */
+
+
+
+
+
+
+/* ----------general settings of my layout and typography---------- */
+body {
+    font-family: "Inter", "Helvetica", "sans-serif";
+    font-weight: 200;
+    line-height: 1.6;
+    color: #303030;
+    min-height: 100vh;
+}
+/* text with italic style, only for aesthetic purpose */
+.italic {
+    font-family: "Abril-Display", "Times Now", "serif";
+    font-style: italic;
+    font-weight: 400;
+}
+
+.serif-heading {
+    font-family: "Abril-Display", "Times Now", "serif";
+    font-weight: 400;
+    text-transform: uppercase;
+}
+
+/* normal heading with sans-serif font */
+h1,
+h2,
+h3 {
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 300;
+    text-align: center;
+}
+
+
+/* ----------------default top navigation bar---------------- */
+header {
+    height: 8vh;
+}
+.top-nav {
+    height: inherit;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 2rem;
+
+    position: absolute;
+    left: 0;
+    right: 0;
+
+}
+
+#logo a {
+    text-decoration: none;
+    font-size: 1.2rem;
+}
+
+
+/* navbar toggle button styling and animation from our tutorial*/
+#nav-menu-icon {
+    cursor: pointer;
+    border: none;
+    background-color: transparent;
+    width: 32px;
+    height: 32px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    opacity: 0;
+}
+
+.icon-bar {
+    display: block;
+    width: 20px;
+    height: 2px;
+    margin: 2px;
+    background-color: white;
+}
+
+#nav-menu-icon.active .icon-bar:first-child,
+#nav-menu-icon.active .icon-bar:last-child {
+    position: absolute;
+    margin: 0;
+    width: 24px;
+}
+
+#nav-menu-icon.active .icon-bar:first-child {
+    transform: rotate(45deg);
+}
+
+/* Hide the middle menu bar */
+#nav-menu-icon.active .icon-bar:nth-child(2) {
+    opacity: 0;
+}
+
+/* Rotate the bottom menu bar */
+#nav-menu-icon.active .icon-bar:last-child {
+    transform: rotate(-45deg);
+}
+
+.icon-bar {
+    transition: all 0.2s ease-in-out;
+}
+
+/* navbar items container */
+#nav-link-container {
+    flex-grow: 1;
+    text-align: right;
+}
+
+.nav-links li {
+    list-style: none;
+    display: inline-block;
+    padding: 2px 10px;
+    position: relative;
+}
+
+.nav-links li:first-child {
+    visibility: hidden;
+}
+
+/* nav bar hovering animation */
+.nav-links li::after {
+    content: '';
+    width: 0%;
+    height: 1px;
+    display: block;
+    margin: auto;
+    transition: 0.2s ease-in-out;
+    background: white;
+}
+
+.nav-links li:hover::after {
+    width: 100%;
+}
+
+/* nav bar link typography style*/
+.nav-links li a {
+    text-decoration: none;
+    text-transform: uppercase;
+    font-weight: 400;
+    font-size: 0.8rem;
+}
+
+/* styling the element color inside the top-nav-bar */
+.top-nav-light a {
+    color: white;
+}
+
+/* dark version of top navigation bar */
+.top-nav-dark a {
+    color: #303030;
+}
+.top-nav-dark .nav-links li::after {
+    content: '';
+    width: 0%;
+    height: 1px;
+    display: block;
+    margin: auto;
+    transition: 0.2s ease-in-out;
+    background: #303030;
+}
+
+.top-nav-dark .nav-links li:hover::after {
+    width: 100%;
+}
+/* ----------------smaller version top navigation bar for tablet and mobile---------------- */
+@media screen and (max-width: 768px) {
+
+    /* display menu icon for navigation */
+    .top-nav {
+        background-color: #5B6245;
+        position: fixed;
+        z-index: 1000;
+    }
+
+    .top-nav a,
+    .top-nav a span {
+        color: white;
+    }
+
+    #nav-menu-icon {
+        opacity: 1;
+    }
+
+    /* remove text navigation when it is on smaller screen */
+    #nav-link-container {
+        position: fixed;
+        width: 100%;
+        top: 8vh;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        z-index: 10;
+
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+
+        transform-origin: top;
+        /* initial state */
+        transform: scaleY(0%);
+    }
+
+    #nav-menu-icon.active+#nav-link-container {
+        background-color: #5B6245;
+        opacity: 1;
+        transform: scaleY(100%);
+        transition: all 0.3s ease-in-out;
+    }
+
+    .nav-links {
+        position: absolute;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        row-gap: 2rem;
+        width: 100%;
+        padding: 0;
+    }
+
+    .nav-links li:first-child {
+        visibility: visible;
+    }
+
+    .nav-links li a {
+        font-size: 3rem;
+    }
+
+}
+
+
+/*  ----------------breadcrumb navigation white version---------------- */
+.breadcrumb {
+    padding: 1rem 2rem;
+    font-size: 0.8rem;
+}
+
+.breadcrumb ul {
+    display: flex;
+    flex-wrap: wrap;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.breadcrumb li:not(:last-child)::after {
+    display: inline-block;
+    margin: 0 .25rem;
+    content: ">";
+}
+
+.breadcrumb li a {
+    text-decoration: none;
+    text-transform: uppercase;
+}
+
+.breadcrumb li span {
+    text-decoration: underline;
+    text-transform: uppercase;
+}
+
+/* styling the element color inside the breadcrumb navbar */
+.breadcrumb-light,
+.breadcrumb-light li a,
+.breadcrumb-light li span {
+    color: white;
+}
+
+.breadcrumb-dark,
+.breadcrumb-dark li a,
+.breadcrumb-dark li span {
+    color: #303030;
+}
+
+/* -------------dashed button styling and animation------------- */
+.dashed-btn {
+    display: inline-block;
+    width: fit-content;
+}
+
+.dashed-btn a {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    /*   increase the gap between text and arrow icon */
+    column-gap: 10px;
+    padding: 8px 30px;
+    border-radius: 100px;
+    color: white;
+    border: 1px dashed white;
+    background-color: transparent;
+}
+
+.dashed-btn a:hover {
+    background-color: rgba(0, 0, 0, 0.15);
+    transition: all 0.3s ease-in-out;
+}
+
+.dashed-btn a:active {
+    border: 1px solid white;
+}
+
+/* button size will shrink when viewing on a smaller screen  */
+@media screen and (max-width: 480px) {
+    .dashed-btn a {
+        padding: 4px 20px;
+        font-size: 0.8rem;
+    }
+    .dashed-btn a svg {
+        width: 1rem;
+    }
+}
+
+
+
+/* ---------------------------------HOME PAGE--------------------------------- */
+/* full screen image background*/
+#hero-section {
+    background: url("images/homepage/bg-homepage.png") no-repeat;
+    background-position: center;
+    background-size: cover;
+    height: 100vh;
+
+    /* element inside this section should all be white */
+    color: white;
+}
+
+#hero-section * {
+    /* element inside this section should all be white */
+    color: white;
+}
+
+/* -------------hero section------------- */
+#hero-text {
+    width: 100%;
+    /* my silly way to position the text at the center of container */
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    padding: 2rem;
+}
+
+#hero-text h1 {
+    font-size: 3.5rem;
+}
+
+#hero-text p {
+    text-transform: uppercase;
+    font-size: 0.8rem;
+    letter-spacing: 0.8rem;
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translate(-50%, 0%);
+}
+
+@media screen and (max-width: 768px) {
+    #hero-text {
+        padding: 1rem;
+    }
+    #hero-text h1 {
+        font-size: 2.5rem;
+    }
+    #hero-text p {
+        letter-spacing: 0.6rem;
+        font-size: 0.6rem;
+    }
+}
+@media screen and (max-width: 480px) {
+    #hero-text p {
+        letter-spacing: 0.5rem;
+        font-size: 0.5rem;
+    }
+}
+
+
+/* -------------general setup for sections in the homepage------------- */
+#homepage section {
+    min-height: 100vh;
+    text-align: center;
+}
+.homepage-subheading {
+    padding: 3rem 2rem 2rem 2rem;
+    font-size: 3rem;
+    color: #303030;
+
+}
+.homepage-introduction {
+    width: 50%;
+    margin: 0 auto;
+    margin-bottom: 1rem;
+    padding: 1rem;
+    color: #303030;
+    font-size: 1rem;
+}
+@media screen and (max-width: 480px) {
+    .homepage-subheading {
+        font-size: 2rem;
+    }
+    .homepage-introduction {
+        width: 80%;
+        font-size: 0.6rem;
+    }
+}
+
+
+/* -------------explore yunnan section------------- */
+/* the border color of button should be black */
+#explore-yunnan .dashed-btn a {
+    color: #303030;
+    border-color: #303030;
+}
+
+
+/* city image carousel and hovering animation */
+#city-slideshow {
+    margin: 6rem 0;
+}
+
+#city-slideshow .carousel-cell {
+    /* the gap between images */
+    margin: 0 100px;
+    position: relative;
+}
+
+.carousel-cell img {
+    display: block;
+    width: 100%;
+    height: 100%;
+}
+
+#city-slideshow .carousel-cell p {
+    position: absolute;
+    transform: translate(-50%, -50%);
+    top: 50%;
+    left: 50%;
+    color: white;
+    font-size: 3rem;
+    width: 100%;
+    letter-spacing: 0.8rem;
+    opacity: 0;
+}
+@media screen and (max-width: 768px) {
+    #city-slideshow .carousel-cell {
+        width: 66%;
+        margin: 0 80px;
+    }
+    #city-slideshow .carousel-cell p {
+        font-size: 2rem;
+        letter-spacing: 0.5rem;
+    }
+}
+@media screen and (max-width: 480px) {
+    #city-slideshow {
+        margin: 4rem 0;
+    }
+    #city-slideshow .carousel-cell {
+        margin: 0 50px;
+    }
+    #city-slideshow .carousel-cell p {
+        font-size: 1.5rem;
+    }
+}
+
+#city-slideshow .carousel-cell:hover img {
+    filter: blur(2px);
+    transition: filter 300ms ease-in-out;
+}
+
+#city-slideshow .carousel-cell:hover p {
+    opacity: 1;
+    transition: opacity 300ms ease-in-out;
+}
+
+/* -------------experience yunnan section------------- */
+#experience-yunnan {
+    background: #283760;
+    text-align: center;
+
+    /* anchor for background pattern */
+    position: relative;
+    z-index: 0;
+}
+
+#experience-yunnan * {
+    /* element inside this section should all be white */
+    color: white;
+}
+
+img#bg-pattern {
+    mix-blend-mode: multiply;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    z-index: -1;
+}
+
+
+.homepage-discovery-container {
+    display: flex;
+    justify-content: center;
+    column-gap: 8rem;
+    align-items: center;
+    flex-wrap: wrap;
+
+    padding: 6rem 0;
+}
+
+.homepage-discovery-item {
+    border: 1px solid white;
+    height: 150px;
+    width: 300px;
+    border-radius: 50%;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    row-gap: 5px;
+}
+
+.homepage-discovery-item h3 {
+    font-size: 1.5rem;
+    font-weight: 300;
+    font-style: normal;
+}
+
+@media screen and (max-width: 768px) {
+    .homepage-discovery-container {
+        column-gap: 4rem;
+    }
+    .homepage-discovery-item {
+        height: 100px;
+        width: 200px;
+    }
+    .homepage-discovery-item h3 {
+        font-size: 1rem;
+    }
+}
+@media screen and (max-width: 480px) {
+    /* change the flex direction to column for better readability */
+    .homepage-discovery-container {
+        flex-direction: column;
+        row-gap: 2rem;
+        padding: 2rem 0;
+    }
+}
+
+
+
+
+/* ---------------------------------DESTINATION PAGE--------------------------------- */
+#destination-page {
+    background: url("images/destination-page/regions/northwestern.png");
+    /* default image */
+    background-position: center !important;
+    background-size: cover !important;
+    min-height: 100vh;
+}
+
+#destination-page * {
+    color: white;
+}
+#destination-page h1 {
+    font-size: 2.5rem;
+    padding: 0 2rem;
+}
+@media screen and (max-width: 768px) {
+    #destination-page h1 {
+        font-size: 2rem;
+        padding: 1rem;
+    }
+}
+
+.flex-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    padding: 0 2rem;
+    column-gap: 2rem;
+}
+@media screen and (max-width: 768px) {
+    .flex-container {
+        flex-direction: column;
+    }
+}
+
+/* interactive map when selected */
+#map {
+    padding: 1rem;
+
+}
+
+#map svg {
+    width: 600px;
+    height: 600px;
+    stroke-width: 0.1%;
+}
+@media screen and (max-width: 1080px) {
+    #map svg {
+        height: 450px;
+        width: 450px;
+    }
+    
+}
+@media screen and (max-width: 960px) {
+    #map svg {
+        height: 420px;
+        width: 420px;
+    }
+    
+}
+
+#map path {
+    stroke: white;
+    fill: transparent;
+    /* animation for clicking on particular region */
+    transition: fill 0.5s ease-in-out;
+    transform-origin: center center;
+}
+/* hovering effect */
+#map path:hover {
+    stroke-width: 0.3%;
+    cursor: pointer;
+}
+
+/* text description container */
+.description-container {
+    padding: 1rem;
+}
+#description-instruction {
+    text-align: center;
+    text-transform: uppercase;
+    line-height: 1.3;
+    font-size: 1.5rem;
+    animation: blink 1500ms ease-in infinite alternate;
+}
+/* blinking animation for the instruction */
+@keyframes blink {
+    from {
+        opacity: 0.2;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+/* By default the display state is set to none, user need to select a place first to reveal this */
+#description-wrapper {
+    display: none;
+
+}
+
+#description-wrapper p {
+    color: white;
+    text-transform: uppercase;
+    letter-spacing: 0.3rem;
+    font-size: 1rem;
+}
+
+#description-wrapper h2 {
+    color: white;
+    text-transform: uppercase;
+    font-weight: 500;
+    font-size: 2rem;
+    text-align: left;
+}
+
+.cities {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    column-gap: 1rem;
+}
+@media screen and (max-width: 768px) {
+    #description-wrapper * {
+        text-align: center !important;
+    }
+    .cities {
+        justify-content: center;
+    }
+}
+
+/* Change the button hover animation to a white color so users can be more informed about the changes */
+#description-wrapper .dashed-btn a:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+    transition: all 0.3s ease-in-out;
+}
+
+#description-wrapper .dashed-btn a {
+    letter-spacing: 0.2rem;
+    padding: 4px 20px;
+}
+@media screen and (max-width: 960px) {
+    #description-wrapper .dashed-btn a {
+        font-size: 0.8rem;
+        letter-spacing: 0.1rem;
+        padding: 3px 15px;
+    }
+    
+}
+
+
+/* ---------------------------------DISCOVERY PAGE--------------------------------- */
+/* simple reset for this page to have white text for all elements */
+#discovery-page * {
+    color: white;
+}
+
+#discovery-page {
+    background-color: #283760;
+}
+#discovery-page h1 {
+    font-size: 2.5rem;
+    padding: 0 2rem;
+}
+@media screen and (max-width: 768px) {
+    #discovery-page h1 {
+        font-size: 2rem;
+        padding: 1rem;
+    }
+}
+/* -----discovery options----- */
+.discovery-row {
+    margin-top: 3rem;
+    padding: 1rem 2rem;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    column-gap: 1rem;
+}
+@media screen and (max-width: 600px) {
+    .discovery-row {
+        flex-direction: column;
+        margin-top: 0;
+        row-gap: 2rem;
+    }
+}
+.discovery-col {
+    color: white;
+    text-decoration: none;
+    text-transform: uppercase;
+    letter-spacing: 1.2;
+
+    border: 1px dashed white;
+    height: auto;
+}
+
+.discovery-col-description {
+    margin: 2rem 0;
+    padding: 1rem;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    column-gap: 20px;
+}
+@media screen and (max-width: 768px) {
+    .discovery-col-description h2 {
+        font-size: 1rem;
+    }
+}
+@media screen and (max-width: 480px) {
+    .discovery-col-description svg {
+        width: 24px;
+    }
+}
+
+
+
+/* ---------------------------------ETHNIC CULTURES--------------------------------- */
+#ethnic-culture-page h1 {
+    font-size: 3rem;
+    margin: 2rem 0;
+}
+@media screen and (max-width: 768px) {
+    #ethnic-culture-page h1 {
+        font-size: 2.5rem;
+        margin: 1.5rem 0;
+    }
+    
+}
+@media screen and (max-width: 480px) {
+    #ethnic-culture-page h1 {
+        font-size: 2rem;
+    }
+    
+}
+
+/* Unique Events Section */
+#festival-slideshow {
+    margin: 3rem 0 6rem 0;
+    padding: 0 2rem;
+}
+
+#festival-slideshow .carousel-cell {
+    margin-right: 180px;
+    border-radius: 0;
+    width: 45%;
+
+    /* animation property */
+    opacity: 0.8;
+    filter: saturate(0%);
+}
+@media screen and (max-width: 768px) {
+    #festival-slideshow .carousel-cell {
+        margin-right: 120px;
+    }
+}
+@media screen and (max-width: 480px) {
+    #festival-slideshow .carousel-cell {
+        margin-right: 80px;
+    }
+
+}
+
+#festival-slideshow .carousel-cell.is-selected {
+    transition: filter 1s ease-in-out;
+    transition: opacity 1s ease-in-out;
+    opacity: 1;
+    filter: saturate(100%);
+}
+
+.carousel-text {
+    display: flex;
+    justify-content: space-between;
+}
+.carousel-text p {
+    font-size: 0.8rem;
+}
+
+@media screen and (max-width: 480px) {
+    .carousel-text p {
+        font-size: 0.6rem;
+    } 
+}
+
+
+
+/* Ethnic Group Section */
+#ethnic-groups {
+    background: #283760;
+    min-height: 100vh;
+}
+
+#ethnic-groups * {
+    color: white;
+}
+
+#ethnic-groups>p {
+    width: 70%;
+    text-align: center;
+    margin: auto;
+    padding: 1rem;
+}
+@media screen and (max-width: 768px) {
+    #ethnic-groups>p {
+        width: 90%;
+        font-size: 0.8rem;
+    }
+}
+
+#group-carousel {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    column-gap: 10rem;
+    row-gap: 2rem;
+    flex-wrap: wrap;
+    position: relative;
+    padding: 2rem;
+    padding-bottom: 4rem;
+}
+@media screen and (max-width: 768px) {
+    #group-carousel {
+        column-gap: 6rem;
+    }
+}
+#bg-decoration {
+    position: absolute;
+    height: 50%;
+    width: 25%;
+    border: 1px dashed white;
+    border-top-left-radius: 250px;
+    border-top-right-radius: 250px;
+    top: 25%;
+    left: 50%;
+    transform: translate(-50%, -25%);
+}
+@media screen and (max-width: 960px) {
+    #bg-decoration {
+        height: 40%;
+    }
+}
+@media screen and (max-width: 600px) {
+    #group-carousel {
+        row-gap: 1rem;
+        column-gap: 3rem;
+    }
+    #bg-decoration {
+        height: 30%;
+        top: 20%;
+    }
+}
+.carousel-btn {
+    background: none;
+    cursor: pointer;
+    width: 72px;
+    height: 72px;
+    border: 1px dashed white;
+    border-radius: 200px;
+
+    /* in order to align the arrow svg in the center, I use the button container as the anchor */
+    position: relative;
+}
+@media screen and (max-width: 600px) {
+    .carousel-btn {
+        width: 48px;
+        height: 48px;
+    }
+    .carousel-btn svg {
+        width: 24px;
+    }
+}
+
+.carousel-btn svg {
+    position: absolute;
+    top:50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+}
+.carousel-btn:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+    transition: all 0.3s ease-in-out;
+}
+.carousel-btn:active {
+    border-style: solid;
+}
+.carousel-btn svg {
+    margin: auto;
+}
+
+#group-carousel>img {
+    width: 25%;
+    z-index: 1;
+}
+
+.group-container {
+    width: 100%;
+}
+
+.group-container>h2 {
+    padding: 1rem;
+    text-align: center;
+    font-size: 2.5rem;
+    letter-spacing: 0.2rem;
+}
+
+.group-container>p {
+    padding-bottom: 2rem;
+    font-size: 1rem;
+    text-align: center;
+    text-transform: uppercase;
+    letter-spacing: 0.1rem;
+}
+@media screen and (max-width: 600px) {
+    .group-container>h2 {
+        font-size: 1.5rem;
+    }
+    .group-container>p {
+        font-size: 0.8rem;
+    }
+}
+
+/* Adventure Section */
+
+/* Inspired by Robin Rendle, a grid layout withoug media queries */
+/* https://css-tricks.com/a-responsive-grid-layout-with-no-media-queries/ */
+.adventure-grid {
+    padding: 1rem 2rem;
+    --auto-grid-min-size: 16rem;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(var(--auto-grid-min-size), 1fr));
+    grid-gap: 1rem;
+}
+
+.adventure-item {
+    padding: 0.8rem;
+    background: #5B6245;
+}
+
+.adventure-item:nth-of-type(2n) {
+    background: #283760;
+}
+
+.adventure-item h3 {
+    color: white;
+    font-family: 'Abril Display';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 1.2rem;
+    text-transform: uppercase;
+    text-align: left;
+    line-height: 1.1em;
+}
+
+.tag-container {
+    margin: 4% 0;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+}
+
+.tag-wrapper {
+    display: flex;
+    align-items: center;
+    margin-right: 10%;
+}
+
+.tag-wrapper span {
+    margin-left: 5px;
+    color: white;
+    font-size: 0.8rem;
+}
+@media screen and (max-width: 768px) {
+    .tag-wrapper span {
+        font-size: 0.7rem;
+
+    }
+}
+
+.adventure-item figure {
+    max-width: 100%;
+    margin-bottom: 1rem;
+
+}
+
+.adventure-item .dashed-btn {
+    margin: auto 0;
+    float: right;
+}
+
+
+/* ---------------------------CITY INTRODUCTION PAGE--------------------------- */
+/* for this part I thought grid would be a better choice to manage the layout */
+.city-introduction {
+    margin: 0 2rem;
+    padding: 1rem;
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    gap: 1rem;
+    grid-auto-rows: min-content;
+    border: 1px dashed #303030;
+}
+
+.city-introduction:not(:first-of-type) {
+    margin-top: 10vh;
+}
+
+.city-introduction>nav {
+    grid-column: 1 / -1;
+    grid-row: 2;
+    padding: 0;
+}
+
+.city-introduction>h1 {
+    grid-column: 1 / -1;
+    grid-row: 1;
+    z-index: 2;
+    font-family: 'Abril Display';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 3rem;
+    letter-spacing: 1rem;
+    text-transform: uppercase;
+    margin-top: 4rem;
+    color: white;
+}
+
+@media screen and (max-width: 480px) {
+    .city-introduction>h1 {
+        font-size: 2rem;
+    }
+}
+
+.city-introduction>h1+figure {
+    grid-column: 1 / 13;
+    grid-row: 1;
+    max-width: 100%;
+}
+
+.city-introduction>h1+figure figcaption {
+    font-size: 0.8rem;
+    float: right;
+    margin-top: 5px;
+}
+
+.city-introduction h2 {
+    color: black;
+    position: relative;
+    text-align: left;
+    font-size: 1.5rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1rem;
+}
+
+.city-introduction h2>span {
+    position: absolute;
+    width: 110px;
+    height: 5px;
+    border-top: 1px solid #303030;
+    top: 0;
+}
+
+.city-introduction .overview-text {
+    grid-column: 8 / span 4;
+    grid-row: 2;
+    margin: 10vh 0;
+    font-size: 1rem;
+}
+
+.city-introduction .overview-text+figure {
+    grid-column: 2/8;
+    grid-row: 2;
+    width: 90%;
+    margin: 10vh 0 0 0;
+}
+@media screen and (max-width: 768px) {
+    .city-introduction .overview-text+figure {
+        grid-column: 3 / -3;
+        grid-row: 3;
+        margin: 5vh 0;
+    }
+    .city-introduction .overview-text {
+        grid-column: 1 / -1;
+        grid-row: 4;
+        margin: 0;
+    }
+}
+@media screen and (max-width: 480px) {
+    .city-introduction .overview-text {
+        font-size: 0.8rem;
+    }
+}
+
+.city-introduction>h2.explore-subheading {
+    grid-column: 1 / -1;
+    grid-row: auto;
+    margin-top: 5vh;
+}
+
+.sight-wrapper {
+    grid-column: 1 / -1;
+    grid-row: auto;
+    /* same grid trick used in the adventure page */
+    --auto-grid-min-size: 16rem;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(var(--auto-grid-min-size), 1fr));
+    grid-gap: 1rem;
+
+}
+
+.sight-item {
+    padding: 20px;
+    background: #283760;
+}
+
+.city-introduction:nth-of-type(2n) .sight-item {
+    background-color: #5B6245;
+}
+
+.sight-item img {
+    border-top-right-radius: 300px;
+    border-top-left-radius: 300px;
+    margin: auto;
+}
+
+.sight-item h3 {
+    color: white;
+    font-family: 'Times Now';
+    font-style: normal;
+    font-weight: 300;
+    font-size: 1rem;
+    text-transform: uppercase;
+    margin-top: 20px;
+}
